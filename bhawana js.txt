@@ -1,0 +1,905 @@
+<html> 
+
+<head> 
+
+<title>Find the area</title> //Sets the webpage title
+
+<h1>Area of triangle using JavaScript</h1> 
+<label>Enter length of Side 1 of triangle =</label> 
+
+<input type="number" id="side1" /> //id="side1" part gives this box a unique name called "side1."
+
+<br > 
+<br > 
+<label>Enter length of Side 2 of triangle=</label> 
+<input type="number" id="side2" /> 
+<br > 
+<br > 
+<label>Enter length of Side 3 of triangle = </label> 
+<input type="number" id="side3" /> 
+<br > 
+<br > 
+<button type="button" id="areaTri">Submit</button> 
+<p> 
+AREA OF TRIANGLE: <span id="display"></span> //
+The <span> element is like a placeholder or an empty box in the HTML where we can put some content later. It doesn’t show anything by itself until we add text or numbers to it.
+
+<script> 
+document.getElementById("areaTri").onclick = function(){ 
+var side1=parseInt(document.getElementById("side1").value);  
+var side2=parseInt(document.getElementById("side2").value); 
+var side3=parseInt(document.getElementById("side3").value); 
+var s=(side1+side2+side3)/2; 
+var area1=Math.sqrt(s*((s-side1)*(s-side2)*(s-side3))); 
+var a=area1.toFixed(7); 
+document.getElementById("display").innerHTML=a; 
+//document.getElementById("display"): 
+//Finds the HTML element with id="display", which is the empty <span> where //we want to show the result.
+//.innerHTML = a;
+//Sets the inside content of this <span> to be the value stored in a.
+console.log(a); //prints value of a
+} 
+</script> 
+</p> 
+<h1>Area of Rectangle using JavaScript</h1> 
+<label>Enter length of rectangle =</label> 
+<input type="number" id="len" /> 
+</br > 
+</br > 
+<label>Enter breadth of rectangle=</label> 
+<input type="number" id="bre" /> 
+</br > 
+</br > 
+<button type="button" id="areaRec">Submit</button> 
+<p> 
+AREA OF RECTANGLE: <span id="display1"></span> 
+<script> 
+document.getElementById("areaRec").onclick = function() 
+{ var len=parseInt(document.getElementById("len").value);  
+var bre=parseInt(document.getElementById("bre").value); 
+var area1=len*bre; 
+var a=area1.toFixed(7); 
+document.getElementById("display1").innerHTML=a; 
+console.log(a); 
+} 
+</script> 
+<p> 
+<h1>Area of Circle using JavaScript</h1> 
+<label>Enter radius of Circle =</label> 
+<input type="number" id="rad" /> 
+<br > 
+<br ><button type="button" id="areaCir">Submit</button> 
+<p> 
+AREA OF CIRCLE: <span id="display2"></span> 
+<script> 
+document.getElementById("areaCir").onclick = function() 
+{ var rad=parseInt(document.getElementById("rad").value); 
+var area1=3.14*rad*rad; 
+var a=area1.toFixed(7); 
+document.getElementById("display2").innerHTML=a; 
+console.log(a); 
+} 
+</script> 
+</p> 
+</head> 
+</html> 
+
+
+
+
+
+MULTIPLICAION WALA:::
+
+<!DOCTYPE html> //file is an HTML5 document
+
+<html> 
+
+<head> 
+
+<title>Multiplication Table</title> 
+
+</head> 
+
+<body>
+ 
+<script> 
+
+const number = parseInt(prompt('Enter an integer: ')); 
+
+//A popup box appears, asking the user to "Enter an integer."
+//prompt(): This function shows a text box where the user can type a //number.
+//parseInt(): This function converts the text entered by the user into an integer (whole number).
+//const number = ...: This saves the user’s number as a variable named number, which will be used to create the multiplication table.
+
+
+
+document.write('<h2>Multiplication Table for ' + number + 
+':</h2>'); 
+
+for (let i = 1; i <= 10; i++) { 
+const result = i * number; 
+document.write(i + ' x ' + number + ' = ' + result + 
+'<br>'); 
+} 
+
+</script> 
+</body> 
+</html> 
+
+
+
+COUNTDOWN TIME:::
+
+<!DOCTYPE html> 
+<!-- Declares the document type as HTML5 -->
+
+<html> 
+<!-- Root element of the HTML document -->
+
+<head> 
+<!-- Contains metadata for the webpage -->
+<title>Countdown Timer</title> 
+<!-- Title of the webpage -->
+</head> 
+
+<body> 
+<!-- Body of the webpage, containing the content visible to users -->
+
+<h3>Building Countdown Timer Using Date Function</h3> 
+<!-- Heading to explain the purpose of the page -->
+
+<p id="demo"></p> 
+<!-- A paragraph where the countdown timer will be displayed -->
+
+<script> 
+<!-- JavaScript section starts here -->
+
+var tDate = new Date(); 
+// Creates a Date object called tDate, which holds the current date and time
+
+document.write("<br>Today's Date: " + tDate); 
+// Writes the current date and time to the webpage
+document.write("<br>Month: " + (tDate.getMonth() + 1)); 
+// Writes the current month to the webpage (months are 0-indexed, so adding 1)
+document.write("<br>Day: " + tDate.getDate()); 
+// Writes the current day of the month to the webpage
+document.write("<br>Current Time (in ms since Jan 1, 1970): " + tDate.getTime()); 
+// Writes the current time in milliseconds since January 1, 1970 to the webpage
+
+var tt = tDate.getTime(); 
+// Retrieves the current time in milliseconds and stores it in the variable tt
+
+var countDownDate = new Date("Jan 5, 2025 15:37:25").getTime(); 
+// Creates a target countdown date (Jan 5, 2025 at 3:37:25 PM) and stores its time in milliseconds
+
+var diff = countDownDate - tt; 
+// Calculates the difference between the target countdown date and the current time in milliseconds
+document.write("<br><br>Countdown Target Date: Jan 5, 2025 15:37:25"); 
+// Displays the target countdown date
+document.write("<br>Time in ms since Jan 1, 1970 to target date: " + countDownDate); 
+// Displays the target date in milliseconds
+document.write("<br>Difference between now and target date (in ms): " + diff); 
+// Displays the difference between the current date and the target date in milliseconds
+
+var x = setInterval(myTimer, 1000); 
+// Calls the function `myTimer` every 1000 milliseconds (1 second) to update the countdown
+
+function myTimer() { 
+    // Function to update the countdown every second
+    var now = new Date().getTime(); 
+    // Gets the current time in milliseconds
+    var distance = countDownDate - now; 
+    // Calculates the remaining time until the target date
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24)); 
+    // Calculates the number of days left
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); 
+    // Calculates the number of hours left (remainder after subtracting days)
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); 
+    // Calculates the number of minutes left (remainder after subtracting hours)
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000); 
+    // Calculates the number of seconds left (remainder after subtracting minutes)
+    
+    document.getElementById("demo").innerHTML =  
+    "Countdown: " + days + " days, " + hours + " hours, " + 
+    minutes + " minutes, " + seconds + " seconds"; 
+    // Updates the countdown timer on the webpage
+    
+    if (distance < 0) { 
+        clearInterval(x); 
+        // Stops the timer when the countdown is over
+        document.getElementById("demo").innerHTML = "EXPIRED"; 
+        // Displays "EXPIRED" when the countdown ends
+    } 
+} 
+
+</script> 
+<!-- End of JavaScript section -->
+
+</body> 
+<!-- End of body section -->
+
+</html> 
+<!-- End of HTML document -->
+
+
+
+ARRAY WALA:::
+
+<!DOCTYPE html> 
+<!-- Specifies that this document is HTML5 -->
+<html> 
+<!-- Root element for the HTML document -->
+<head> 
+<!-- Contains metadata and title of the document -->
+<title>Array Operations</title> 
+<!-- Sets the title of the page to "Array Operations" -->
+</head> 
+<body> 
+<!-- Body of the HTML, containing visible elements -->
+
+<h3>Demonstrate Array Operations</h3> 
+<!-- A heading to describe the purpose of the page -->
+
+<button onclick="removeElement()">Remove Element</button> 
+<!-- Button that, when clicked, calls the removeElement() function -->
+
+<button onclick="chkValue()">Check Value</button> 
+<!-- Button that, when clicked, calls the chkValue() function -->
+
+<button onclick="emptyArray()">Empty Array</button> 
+<!-- Button that, when clicked, calls the emptyArray() function -->
+
+<p id="output"></p> 
+<!-- Paragraph element with id "output" where the results will be displayed -->
+
+<script> 
+<!-- JavaScript code starts here -->
+
+function removeElement() { 
+    // Defines a function to demonstrate array element removal
+    
+    var shoeBrand = ["Nike", "Adidas", "Puma", "Woodland"]; 
+    // Initializes an array called shoeBrand with four string elements
+
+    var output = document.getElementById("output"); 
+    // Selects the HTML element with id "output" to display the results
+
+    output.innerHTML = "Original Array: " + shoeBrand.join(", ") + "<br>"; 
+    // Displays the original array content, joined with commas
+
+    // Removing the last element from the array 
+    var poppedElement = shoeBrand.pop(); 
+    // Removes the last item in the shoeBrand array and stores it in poppedElement
+
+    output.innerHTML += "Removed last element: " + poppedElement + "<br>"; 
+    // Displays the removed element
+
+    output.innerHTML += "Updated Array after pop(): " + shoeBrand.join(", ") + "<br>"; 
+    // Displays the updated array after the pop() operation
+
+    // Removing 2 elements from position "1" 
+    var removedElements = shoeBrand.splice(1, 2); 
+    // Removes two elements starting from index 1, storing them in removedElements
+
+    output.innerHTML += "Removed elements from splice(1, 2): " + removedElements.join(", ") + "<br>"; 
+    // Displays the elements removed by splice
+
+    output.innerHTML += "Updated Array after splice(): " + shoeBrand.join(", ") + "<br>"; 
+    // Displays the array after the splice operation
+}
+
+function chkValue() { 
+    // Defines a function to check for a specific value in an array
+
+    var carBrand = ["Mercedes", "BMW", "Jeep", "Porsche"]; 
+    // Initializes an array called carBrand with car brand names
+
+    var output = document.getElementById("output"); 
+    // Selects the output element to display results
+
+    output.innerHTML = "Array: " + carBrand.join(", ") + "<br>"; 
+    // Displays the carBrand array contents
+
+    var str = prompt("Enter a car brand to check:"); 
+    // Prompts the user to input a car brand to search in the array
+
+    const hasValue = carBrand.includes(str); 
+    // Checks if the array carBrand contains the value entered by the user
+
+    if (hasValue) { 
+        // If the entered brand is found in the array
+        output.innerHTML += "Array contains: " + str + "<br>"; 
+        // Displays a message that the array contains the entered value
+    } else { 
+        // If the entered brand is not in the array
+        output.innerHTML += "Array does not contain: " + str + "<br>"; 
+        // Displays a message that the array does not contain the entered value
+    } 
+}
+
+function emptyArray() { 
+    // Defines a function to demonstrate how to empty an array
+
+    var carBrand = ["Mercedes", "BMW", "Jeep", "Porsche"]; 
+    // Initializes an array called carBrand with car brands
+
+    var output = document.getElementById("output"); 
+    // Selects the output element to display the result
+
+    output.innerHTML = "Original Array: " + carBrand.join(", ") + "<br>"; 
+    // Displays the original array content
+
+    // Storing the elements before emptying 
+    var emptiedElements = carBrand.slice(); 
+    // Copies the current carBrand array elements into emptiedElements
+
+    carBrand.splice(0, carBrand.length); 
+    // Empties the carBrand array by removing all elements from index 0
+
+    output.innerHTML += "Elements removed: " + emptiedElements.join(", ") + "<br>"; 
+    // Displays the elements that were in the array before it was emptied
+
+    output.innerHTML += "Empty Array: " + carBrand + "<br>"; 
+    // Displays the now-empty array
+}
+</script> 
+<!-- JavaScript code ends here -->
+
+</body> 
+</html> 
+<!-- HTML document ends here -->
+
+
+
+SET OPERATIONS:::
+
+<!DOCTYPE html> 
+<!-- Declares that this document is an HTML5 document -->
+<html> 
+<!-- Root element for the HTML content -->
+
+<head> 
+<!-- Contains metadata and the title of the page -->
+
+<title>Demonstrate Set Operations</title> 
+<!-- Sets the title of the page in the browser tab to "Demonstrate Set Operations" -->
+
+<h2>Demonstrate Set Operations</h2> 
+<!-- A heading for the page that describes its purpose -->
+
+<p>Set A: { 'apple', 'mango', 'orange' }</p> 
+<p>Set B: { 'grapes', 'apple', 'banana' }</p> 
+<p>Set C: { 'apple', 'orange' }</p>  
+<!-- Describes each set to the user, showing the elements in Set A, Set B, and Set C -->
+
+</head> 
+
+<body> 
+<!-- Body of the HTML document that contains the visible elements and JavaScript functions -->
+
+<button onclick="union()">Union of Sets</button> 
+<!-- Button that calls the `union()` function when clicked -->
+
+<button onclick="intersection()">Intersection of Sets</button> 
+<!-- Button that calls the `intersection()` function when clicked -->
+
+<button onclick="difference()">Difference of Sets</button>  
+<!-- Button that calls the `difference()` function when clicked -->
+
+<button onclick="subset()">Subset of Set</button> 
+<!-- Button that calls the `subset()` function when clicked -->
+
+<p id="output"></p> 
+<!-- A paragraph element with an id "output" to display the results of set operations -->
+
+<script> 
+<!-- Start of JavaScript code -->
+
+const setA = new Set(['apple', 'mango', 'orange']); 
+const setB = new Set(['grapes', 'apple', 'banana']); 
+const setC = new Set(['apple', 'orange']); 
+// Creates three sets: setA, setB, and setC, using JavaScript's Set object
+
+function union() { 
+    // Defines a function to calculate the union of setA and setB
+
+    let unionSet = new Set(setA); 
+    // Creates a new set called unionSet that initially contains all elements of setA
+
+    for (let i of setB) { 
+        // Loops through each element in setB
+
+        unionSet.add(i); 
+        // Adds each element from setB to unionSet, ensuring unique elements only
+    } 
+
+    document.getElementById("output").innerHTML = "Union of Sets: {" 
+        + Array.from(unionSet).join(", ") + "}"; 
+    // Displays the union of sets by converting unionSet to an array and joining elements with commas
+} 
+
+function intersection() { 
+    // Defines a function to calculate the intersection of setA and setB
+
+    let intersectionSet = new Set(); 
+    // Initializes an empty set to store the intersection elements
+
+    for (let i of setB) { 
+        // Loops through each element in setB
+
+        if (setA.has(i)) { 
+            // Checks if setA contains the current element from setB
+
+            intersectionSet.add(i); 
+            // Adds the common element to intersectionSet
+        } 
+    } 
+
+    document.getElementById("output").innerHTML = "Intersection of Sets: {" 
+        + Array.from(intersectionSet).join(", ") + "}"; 
+    // Displays the intersection result by converting intersectionSet to an array and joining elements with commas
+} 
+
+function difference() { 
+    // Defines a function to calculate the difference of setA minus setB
+
+    let differenceSet = new Set(setA); 
+    // Creates a new set called differenceSet that initially contains all elements of setA
+
+    for (let i of setB) { 
+        // Loops through each element in setB
+
+        differenceSet.delete(i); 
+        // Removes the element from differenceSet if it exists
+    } 
+
+    document.getElementById("output").innerHTML = "Difference of Sets: {" 
+        + Array.from(differenceSet).join(", ") + "}"; 
+    // Displays the difference result by converting differenceSet to an array and joining elements with commas
+} 
+
+function subset() { 
+    // Defines a function to check if setC is a subset of setA
+
+    let isSubset = true; 
+    // Initializes a variable as true to track if setC is a subset of setA
+
+    for (let i of setC) { 
+        // Loops through each element in setC
+
+        if (!setA.has(i)) { 
+            // Checks if the current element from setC is not in setA
+
+            isSubset = false; 
+            // Sets isSubset to false if an element in setC is missing in setA
+
+            break; 
+            // Exits the loop early if setC is not a subset
+        } 
+    } 
+
+    document.getElementById("output").innerHTML = "Set C is a subset of Set A: " + isSubset; 
+    // Displays whether setC is a subset of setA (true or false)
+} 
+
+</script> 
+<!-- End of JavaScript code -->
+
+</body> 
+</html> 
+<!-- End of HTML document -->
+
+
+
+
+Mouseover and Focus Demonstration:::
+
+
+<!DOCTYPE html> 
+<!-- Declares that this document is an HTML5 document -->
+
+<html> 
+<!-- Root element for the HTML content -->
+
+<head> 
+<!-- Contains metadata, links to stylesheets, and scripts -->
+
+<title>Mouseover and Focus Demonstration</title> 
+<!-- Sets the title of the page in the browser tab -->
+
+<style> 
+/* CSS styles go here */
+
+body { 
+    font-family: Arial, sans-serif; 
+    background-color: #f4f4f4; 
+    padding: 20px; 
+    /* Style for the body: font family, background color, and padding around the content */
+} 
+
+h3 { 
+    cursor: pointer; 
+    /* Changes the cursor to a pointer when hovering over the h3 element */
+    transition: color 0.3s ease; 
+    /* Smooth transition for color changes in 0.3 seconds */
+} 
+
+input { 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    transition: background-color 0.3s ease; 
+    margin-top: 10px; 
+    /* Style for the input field: padding, border, border-radius, and transition for background color */
+} 
+
+input:hover { 
+    background-color: black; 
+    /* Changes the input field's background to black when hovered over */
+} 
+
+</style> 
+</head> 
+
+<body> 
+<!-- Body of the HTML document that contains the visible elements and scripts -->
+
+<h2>Demonstrate mouseover() and focusFunction()</h2> 
+<!-- A heading that introduces the demonstration -->
+
+<h3 id="demo" onmouseover="mouseover()" onmouseout="mouseout()">Mouse over me</h3> 
+<!-- The text "Mouse over me" that changes color when the mouse is hovered over it -->
+<!-- onmouseover triggers the mouseover function, onmouseout triggers the mouseout function -->
+
+<input type="text" placeholder="Enter Text" id="focus" onfocus="focusFunction()" onblur="blurFunction()"> 
+<!-- An input field with placeholder text "Enter Text" -->
+<!-- onfocus triggers focusFunction when the input is clicked, onblur triggers blurFunction when the input loses focus -->
+
+<script> 
+/* JavaScript functions go here */
+
+function mouseover() { 
+    document.getElementById("demo").style.color = "red";  
+    /* When mouseover occurs, the color of the text with id "demo" changes to red */
+} 
+
+function mouseout() { 
+    document.getElementById("demo").style.color = "black";  
+    /* When mouseout occurs, the color of the text with id "demo" changes back to black */
+} 
+
+function focusFunction() { 
+    document.getElementById("focus").style.background = "white"; 
+    /* When the input field with id "focus" is focused (clicked), the background color changes to white */
+} 
+
+function blurFunction() { 
+    document.getElementById("focus").style.background = "red"; 
+    /* When the input field with id "focus" loses focus, the background color changes to red */
+} 
+
+</script> 
+
+</body> 
+<!-- End of HTML content -->
+
+</html> 
+<!-- End of HTML document -->
+
+
+
+SIMPLE CALCULATOR:::
+
+<!DOCTYPE html> 
+<!-- Declares the document type as HTML5 -->
+<html> 
+<!-- Root element that wraps the whole HTML document -->
+
+<head> 
+<!-- Contains metadata, links to stylesheets, and other head elements -->
+<title>Simple Calculator</title> 
+<!-- Sets the title of the webpage, which appears in the browser tab -->
+</head> 
+
+<body> 
+<!-- Body of the webpage containing visible elements -->
+<h2>Simple Calculator</h2> 
+<!-- Displays the heading for the calculator -->
+
+<input id="text1" placeholder="Enter Number" type="number"> 
+<!-- Creates an input field where users can enter the first number -->
+<!-- The type="number" restricts input to only numbers -->
+
+<input id="text2" placeholder="Enter Number" type="number"> 
+<!-- Creates an input field where users can enter the second number -->
+
+<br><br> 
+<!-- Adds some spacing between elements -->
+
+<button onclick="sum()">Add</button> 
+<!-- A button that triggers the sum() function when clicked -->
+
+<button onclick="diff()">Subtract</button> 
+<!-- A button that triggers the diff() function when clicked -->
+
+<button onclick="mult()">Multiply</button> 
+<!-- A button that triggers the mult() function when clicked -->
+
+<button onclick="div()">Divide</button> 
+<!-- A button that triggers the div() function when clicked -->
+
+<button onclick="square()">Square of First Number</button> 
+<!-- A button that triggers the square() function when clicked -->
+
+<br><br> 
+<!-- Adds more spacing between elements -->
+
+<input id="result" placeholder="Result" readonly> 
+<!-- Creates an input field where the result will be displayed -->
+<!-- The readonly attribute ensures the user cannot modify the result -->
+
+<script> 
+<!-- JavaScript starts here -->
+
+function sum() { 
+    // Function to calculate the sum of the two numbers
+    var x = parseFloat(document.getElementById("text1").value); 
+    // Gets the value of the first input and converts it to a floating-point number
+    var y = parseFloat(document.getElementById("text2").value); 
+    // Gets the value of the second input and converts it to a floating-point number
+    var result = x + y; 
+    // Adds the two numbers
+    document.getElementById("result").value = "Sum: " + result; 
+    // Displays the result in the result input field
+} 
+
+function diff() { 
+    // Function to calculate the difference between the two numbers
+    var x = parseFloat(document.getElementById("text1").value); 
+    var y = parseFloat(document.getElementById("text2").value); 
+    var result = x - y; 
+    // Subtracts the second number from the first
+    document.getElementById("result").value = "Difference: " + result; 
+    // Displays the result in the result input field
+} 
+
+function mult() { 
+    // Function to calculate the product of the two numbers
+    var x = parseFloat(document.getElementById("text1").value); 
+    var y = parseFloat(document.getElementById("text2").value); 
+    var result = x * y; 
+    // Multiplies the two numbers
+    document.getElementById("result").value = "Product: " + result; 
+    // Displays the result in the result input field
+} 
+
+function div() { 
+    // Function to calculate the quotient of the two numbers
+    var x = parseFloat(document.getElementById("text1").value); 
+    var y = parseFloat(document.getElementById("text2").value); 
+    if (y !== 0) { 
+        // Checks if the second number is not zero (to avoid division by zero)
+        var result = x / y; 
+        // Divides the first number by the second
+        document.getElementById("result").value = "Quotient: " + result; 
+        // Displays the result in the result input field
+    } else { 
+        document.getElementById("result").value = "Error: Cannot divide by zero"; 
+        // If the second number is zero, display an error message
+    } 
+} 
+
+function square() { 
+    // Function to calculate the square of the first number
+    var x = parseFloat(document.getElementById("text1").value); 
+    var result = x * x; 
+    // Squares the first number
+    document.getElementById("result").value = "Square of " + x + ": " + result; 
+    // Displays the result in the result input field
+} 
+
+</script> 
+<!-- End of JavaScript -->
+
+</body> 
+<!-- End of body -->
+
+</html> 
+<!-- End of HTML document -->
+
+
+
+STRING OPERATIONS:::
+
+<!DOCTYPE html> 
+<!-- Declares the document type as HTML5 -->
+
+<html> 
+<!-- Root element that wraps the entire HTML document -->
+
+<head> 
+<!-- Contains metadata like the title of the page -->
+<title>String Operations</title> 
+<!-- Sets the title of the webpage, which appears in the browser tab -->
+</head> 
+
+<body> 
+<!-- Body of the webpage, containing the content displayed to the user -->
+
+<h2>String Operations</h2> 
+<!-- Heading that displays the title of the page -->
+
+<input type="text" id="inputString" placeholder="Enter a string"> 
+<!-- Creates a text input field for the user to enter a string -->
+
+<br><br> 
+<!-- Adds space between elements -->
+
+<button onclick="reverseString()">Reverse String</button> 
+<!-- Button that triggers the reverseString() function when clicked -->
+
+<button onclick="replaceCharacter()">Replace Character</button> 
+<!-- Button that triggers the replaceCharacter() function when clicked -->
+
+<button onclick="checkPalindrome()">Check Palindrome</button> 
+<!-- Button that triggers the checkPalindrome() function when clicked -->
+
+<br><br> 
+<!-- Adds space between elements -->
+
+<input type="text" id="result" placeholder="Result" readonly> 
+<!-- Creates a text input field where the result will be displayed -->
+<!-- The readonly attribute makes it so the user cannot modify the result -->
+
+<script> 
+<!-- JavaScript starts here -->
+
+function reverseString() { 
+    // Function to reverse the input string
+    const str = document.getElementById("inputString").value; 
+    // Gets the value from the input field
+    const reversedStr = str.split('').reverse().join(''); 
+    // Reverses the string by splitting it into an array, reversing it, and joining it back into a string
+    document.getElementById("result").value = "Reversed: " + reversedStr; 
+    // Displays the reversed string in the result input field
+} 
+
+function replaceCharacter() { 
+    // Function to replace characters in the string
+    const str = document.getElementById("inputString").value; 
+    // Gets the value from the input field
+    const charToReplace = prompt("Enter character to replace:"); 
+    // Prompts the user to enter the character to replace
+    const newChar = prompt("Enter new character:"); 
+    // Prompts the user to enter the new character
+    const replacedStr = str.replace(new RegExp(charToReplace, 'g'), newChar); 
+    // Replaces all occurrences of the character with the new character
+    document.getElementById("result").value = "Replaced: " + replacedStr; 
+    // Displays the string with the replaced characters in the result input field
+} 
+
+function checkPalindrome() { 
+    // Function to check if the string is a palindrome
+    const str = document.getElementById("inputString").value; 
+    // Gets the value from the input field
+    const cleanedStr = str.replace(/[\W_]/g, '').toLowerCase(); 
+    // Removes all non-alphanumeric characters and converts the string to lowercase
+    const isPalindrome = cleanedStr === cleanedStr.split('').reverse().join(''); 
+    // Checks if the cleaned string is equal to its reverse
+    document.getElementById("result").value = isPalindrome ? "The string is a palindrome." : "The string is not a palindrome."; 
+    // Displays whether the string is a palindrome or not in the result input field
+} 
+</script> 
+<!-- End of JavaScript -->
+
+</body> 
+<!-- End of body -->
+
+</html> 
+<!-- End of HTML document -->
+
+
+
+STRING COMPARISON:::
+
+<!DOCTYPE html> 
+<!-- Declares the document type as HTML5 -->
+
+<html> 
+<!-- Root element that wraps the entire HTML document -->
+
+<head> 
+<!-- Contains metadata such as the title of the page -->
+<title>String Comparison</title> 
+<!-- Sets the title of the webpage that appears in the browser tab -->
+</head> 
+
+<body> 
+<!-- Body of the webpage, containing the content that will be visible to users -->
+
+<h2>Compare Two Strings</h2> 
+<!-- Heading that introduces the string comparison section -->
+
+<input type="text" id="string1" placeholder="Enter first string"> 
+<!-- Input field where the user can enter the first string for comparison -->
+
+<br><br> 
+<!-- Adds space between the elements -->
+
+<input type="text" id="string2" placeholder="Enter second string"> 
+<!-- Input field where the user can enter the second string for comparison -->
+
+<br><br> 
+<!-- Adds space between the elements -->
+
+<button onclick="compareUpperCase()">Compare Using toUpperCase()</button> 
+<!-- Button that triggers the compareUpperCase() function when clicked -->
+
+<button onclick="compareRegex()">Compare Using Regex</button> 
+<!-- Button that triggers the compareRegex() function when clicked -->
+
+<button onclick="compareLocale()">Compare Using localeCompare()</button> 
+<!-- Button that triggers the compareLocale() function when clicked -->
+
+<br><br> 
+<!-- Adds space between the elements -->
+
+<input type="text" id="result" placeholder="Result" readonly style="width: 300px;"> 
+<!-- Input field where the result of the comparison will be displayed (read-only) -->
+
+<script> 
+<!-- JavaScript starts here -->
+
+function compareUpperCase() { 
+    // Function to compare two strings case-insensitively using toUpperCase()
+    const str1 = document.getElementById("string1").value; 
+    // Get the value of the first string input
+    const str2 = document.getElementById("string2").value; 
+    // Get the value of the second string input
+    const isEqual = str1.toUpperCase() === str2.toUpperCase(); 
+    // Compare the strings after converting both to uppercase
+    document.getElementById("result").value = isEqual ? "Strings are equal (case insensitive)." : "Strings are not equal."; 
+    // Display the result in the result input field
+} 
+
+function compareRegex() { 
+    // Function to compare two strings using regular expressions
+    const str1 = document.getElementById("string1").value; 
+    // Get the value of the first string input
+    const str2 = document.getElementById("string2").value; 
+    // Get the value of the second string input
+    const regex = new RegExp(`^${str1}$`, 'i'); // Create a case-insensitive regular expression 
+    const isMatch = regex.test(str2); 
+    // Test if the second string matches the regular expression (first string)
+    document.getElementById("result").value = isMatch ? "Second string matches the first string (regex)." : "Second string does not match the first string."; 
+    // Display the result in the result input field
+} 
+
+function compareLocale() { 
+    // Function to compare two strings using localeCompare() for locale-specific comparison
+    const str1 = document.getElementById("string1").value; 
+    // Get the value of the first string input
+    const str2 = document.getElementById("string2").value; 
+    // Get the value of the second string input
+    const comparison = str1.localeCompare(str2); 
+    // Compare the strings using localeCompare() which compares strings according to the local language
+    if (comparison === 0) { 
+        document.getElementById("result").value = "Strings are equal (locale compare)."; 
+        // If strings are equal, display the result
+    } else if (comparison < 0) { 
+        document.getElementById("result").value = "First string comes before second string."; 
+        // If the first string comes before the second string, display the result
+    } else { 
+        document.getElementById("result").value = "First string comes after second string."; 
+        // If the first string comes after the second string, display the result
+    } 
+} 
+
+</script> 
+<!-- End of JavaScript -->
+
+</body> 
+<!-- End of body -->
+
+</html> 
+<!-- End of HTML document -->
